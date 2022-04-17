@@ -9,8 +9,6 @@ function App() {
   const [plates , setPlates] = useState([])
 
   function reducer(previous , current) {
-    console.log("reducer current" , current.price)
-    console.log("reducer previous" , previous)
     return previous + current.price
   }
 

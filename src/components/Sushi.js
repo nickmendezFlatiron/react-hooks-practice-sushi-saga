@@ -1,17 +1,20 @@
 import {React, useState} from "react";
 
 function Sushi({sushi , setPlates , plates, cost , money}) {
+  
 
   const[isEaten , setIsEaten] = useState(false)
   const {name , img_url , price } = sushi
 
   function handleEaten() {
+    console.log("cost " , cost)
 
-    if (isEaten === false) {
+    if (isEaten === false && sushi.price < (money - cost)) {
         setIsEaten(isEaten => !isEaten) 
-      if (cost < money) return setPlates([...plates , sushi])
-      }
+     return setPlates([...plates , sushi])
+
   }
+}
 
   const eatenSushi = isEaten ? "Sushi is Eaten" : null
 

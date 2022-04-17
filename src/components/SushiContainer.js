@@ -11,7 +11,8 @@ function SushiContainer({setPlates , plates , cost , money}) {
   useEffect(() =>{
     fetch('http://localhost:3001/sushis')
     .then(res => res.json())
-    .then (sushis => setSushiList(sushis))
+    .then (sushis =>{ 
+      setSushiList(sushis)})
   },[])
  
   const fourSushi = sushiList.filter(sushi => {
@@ -20,7 +21,7 @@ function SushiContainer({setPlates , plates , cost , money}) {
 
     }
   )
-  const renderSushi = fourSushi.map(sushi => <Sushi sushi={sushi} setPlates={setPlates} plates={plates} moreSushi={moreSushi} cost={cost} money={money}/>
+  const renderSushi = fourSushi.map(sushi => <Sushi key={sushi.id} sushi={sushi} setPlates={setPlates} plates={plates} moreSushi={moreSushi} cost={cost} money={money}/>
   )
   return (
     <div className="belt">
