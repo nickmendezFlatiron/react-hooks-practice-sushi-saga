@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 
-function Sushi({sushi , setPlates , plates, moreSushi, cost , money}) {
+function Sushi({sushi , setPlates , plates, cost , money}) {
 
   const[isEaten , setIsEaten] = useState(false)
   const {name , img_url , price } = sushi
@@ -13,11 +13,12 @@ function Sushi({sushi , setPlates , plates, moreSushi, cost , money}) {
       }
   }
 
-  // const eatenSushi = isEaten ? "Sushi is Eaten" : "Not Eaten"
+  const eatenSushi = isEaten ? "Sushi is Eaten" : null
 
   return (
     <div className="sushi">
       <div className="plate" onClick={handleEaten}>
+        {eatenSushi}
         {isEaten ? null : (
           <img
             src={img_url}
